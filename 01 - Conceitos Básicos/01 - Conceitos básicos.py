@@ -1,4 +1,5 @@
 # Permite uma sentença em duas linhas
+from string import Template
 from decimal import Decimal, getcontext
 1 \
     + 2
@@ -186,45 +187,63 @@ print(lista)
 del lista[1:3]  # deleta um intervalo
 print(lista)
 
+# List Comprehension
+dobros_pares = [i * 2 for i in range(10) if i % 2 == 0]
+print(dobros_pares)
+
 # Tupla é uma lista imutável
 
 tupla = ()
 tupla = ('um',)  # pra não confundir com ()
 tupla = (1, 2, 3, 4, 5, 6, 7, 8, 9)
 
+# Generator
+dobros_pares = (i * 2 for i in range(10) if i % 2 == 0)
+print(next(dobros_pares))
+print(next(dobros_pares))
+print(next(dobros_pares))
+for x in dobros_pares:
+    print(x)
+
 # Dicionário é um map
 
-dicionário = {'chave': 'valor', 'lista': ['lista', 'lista'], 1:'A chave pode ser um tipo primitivo'}
+dicionário = {'chave': 'valor', 'lista': [
+    'lista', 'lista'], 1: 'A chave pode ser um tipo primitivo'}
 print(dicionário['lista'][1])
 print(dicionário.keys())
 print(dicionário.values())
 print(dicionário.items())
 print(dicionário.get('chave'))
 
-dicionário.pop(1) #Remove dá pra usar del também
-dicionário.update({'chave': 'valor2'}) #altera
+dicionário.pop(1)  # Remove dá pra usar del também
+dicionário.update({'chave': 'valor2'})  # altera
 print(dicionário.items())
 
-#conjunto (set não é indexado e não aceita repetição
+dicionario = {f'Item {i}': i * 2 for i in range(10) if i % 2 == 0}
+print(dicionario)
+for num, valor in dicionario.items():
+    print(f'Chave: {num} -> {valor}')
 
-conjunto = {'1','1','2','3'}
-conjunto2 = set('111233') 
+# conjunto (set não é indexado e não aceita repetição
+
+conjunto = {'1', '1', '2', '3'}
+conjunto2 = set('111233')
 print(conjunto == conjunto2)
 '3' in conjunto2
 
-c1 = {1,2}
-c2 = {2,3}
+c1 = {1, 2}
+c2 = {2, 3}
 c1.union(c2)
 c1.intersection(c2)
-c1.update(c2) #União que modifica c1
-c2 <= c1 #é subconjunto, está contido
+c1.update(c2)  # União que modifica c1
+c2 <= c1  # é subconjunto, está contido
 
-{1,2,3} - {2} #tira o 2
+{1, 2, 3} - {2}  # tira o 2
 
-c1 -= {2} #Operadores funcionam
+c1 -= {2}  # Operadores funcionam
 
 
-#Interpolação
+# Interpolação
 
 nome, idade, peso = 'Carlos', 30, 98.937
 
@@ -232,7 +251,6 @@ print('Nome: %s\nIdade: %d\nPeso: %.2f\n' % (nome, idade, peso))
 print('Nome: {0}\nIdade: {1}\nPeso: {2}\n'.format(nome, idade, peso))
 print(f'Nome: {nome}\nIdade: {idade}\nPeso: {peso}\n')
 
-from string import Template
 
 temp = Template('Nome: $nome \nIdade: $idade \nPeso: $pesoX\n')
 print(temp.substitute(nome=nome, idade=idade, pesoX=peso))
