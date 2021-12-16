@@ -1,0 +1,5 @@
+nome,idade,altura,eEstudante
+João Carlos, 37, 1.79, False
+Ana Clara, 22, 1.67, True
+Matheus Felipe, 21, 1.98, True
+Maria Júlia, 21, 1.64, True
