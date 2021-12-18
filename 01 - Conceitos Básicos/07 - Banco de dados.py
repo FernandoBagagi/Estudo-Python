@@ -1,13 +1,7 @@
 from mysql.connector import connect
 from mysql.connector import ProgrammingError
 
-parametros = dict(
-    host='localhost',
-    port=3306,
-    user='root',
-    
-    database='agenda',
-)
+from parametros import parametros as parametros
 
 try:
     conexao = connect(**parametros)
